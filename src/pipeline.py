@@ -70,7 +70,7 @@ class Pipeline:
         password.service_name = self.__get_service_name()  # TODO: encrypt this name
         password.generate()
         password.encrypt_password(self.__master)
-        password.lockout_period_in_hours = self.__get_lockdown_period()
+        password.lockout_period_in_hours = self.__get_lockout_period()
         password.calc_locked_until()
         password.save_password_object(password.service_name)
         self.printer.created_password()
@@ -82,7 +82,7 @@ class Pipeline:
             if (type(user_input) == str) and (len(user_input) != 0):
                 return user_input
 
-    def __get_lockdown_period(self):
+    def __get_lockout_period(self):
         while True:
             self.printer.specify_lockout_period()
             user_input = input()
