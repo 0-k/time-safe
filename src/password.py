@@ -66,11 +66,13 @@ class Password:
                 self.__generate_salt()  # enforce that new salt is created for new password
                 break
 
-    def __has_extra_strings(self, input_string):
+    @staticmethod
+    def __has_extra_strings(input_string):
         chars = set('#%&$§*_')
         return any((c in chars) for c in input_string)
 
-    def __has_numbers(self, input_string):
+    @staticmethod
+    def __has_numbers(input_string):
         return any(char.isdigit() for char in input_string)
 
     def __generate_salt(self):
@@ -126,7 +128,8 @@ class Password:
         salt = open('../safe/.%ssalt.dat' % extra_string, 'rb')
         self.__salt = salt.read()
 
-    def open_hash(self, extra_string=''):
+    @staticmethod
+    def open_hash(extra_string=''):
         hash = open('../safe/.%shash.dat' % extra_string, 'r')
         return hash.read()
 
@@ -149,7 +152,7 @@ class Password:
         self.locked_until = now + datetime.timedelta(hours=int(self.lockout_period_in_hours))
 
     @property
-    def service_name(self):  #TODO: this has changed
+    def service_name(self):
         return self.__service_name
 
     @service_name.setter

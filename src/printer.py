@@ -1,69 +1,80 @@
 class Printer:
-
-    def __init__(self):
-        self.new_service = ['N', 'n']
-        self.retrieve_password = ['R', 'r']
-        self.set_master = ['M', 'm']
-        self.exit = ['E', 'e']
-        self.show_services = ['S', 's']
-
-    def service_empty(self):
+    @staticmethod
+    def service_empty():
         print('Entered service is empty, please select name.')
 
-    def valid_name(self):
+    @staticmethod
+    def valid_name():
         print('Please use valid name (letters and numbers).')
 
-    def short_password(self):
+    @staticmethod
+    def short_password():
         print('Please use longer password.')
 
-    def set_master_password(self):
+    @staticmethod
+    def set_master_password():
         print('Please set master password (>12 characters)')
 
-    def check_master_password(self):
+    @staticmethod
+    def check_master_password():
         print('Please enter master password')
 
-    def master_password_is_set(self):
+    @staticmethod
+    def master_password_is_set():
         print('Master password has been changed successfully')
 
-    def incorrect_password(self):
+    @staticmethod
+    def incorrect_password():
         print('Incorrect password')
 
-    def show_options(self):
+    @staticmethod
+    def show_options():
         print('N: New online service password')
         print('R: Retrieve online service password')
-        print('M: Master password reset')
+        # print('M: Master password reset')  # TODO: implement master password reset properly,
         print('S: Show all services and lockout times')
         print('E: Exit')
 
-    def choose_options(self):
+    @staticmethod
+    def choose_options():
         print('Please choose one of the following options')
 
-    def incorrect_input(self):
+    @staticmethod
+    def incorrect_input():
         print('Incorrect input')
 
-    def blank(self):
+    @staticmethod
+    def blank():
         print()
 
-    def tell_service(self):
+    @staticmethod
+    def tell_service():
         print('Please tell the name of the service.')
 
-    def created_password(self):
+    @staticmethod
+    def created_password():
         print('Password has been created.')
 
-    def copied_password_to_clipboard(self):
+    @staticmethod
+    def copied_password_to_clipboard():
         print('Password copied to clipboard. Will be cleared in 30 seconds.')
 
-    def password_cleared(self):
+    @staticmethod
+    def password_cleared():
         print('Password cleared.')
 
-    def specify_lockout_period(self):
+    @staticmethod
+    def specify_lockout_period():
         print('Please specify lockout period in hours. Suggestion: 72.')
 
-    def still_locked(self, until=''):
+    @staticmethod
+    def still_locked(until=''):
         print('Could not retrieve password, still time-locked until %s.' % until)
 
-    def waiting_bar(self):
+    @staticmethod
+    def waiting_bar():
         print('.', end ="")
 
-    def service_name_and_locked_until(self, password):
+    @staticmethod
+    def service_name_and_locked_until(password):
         print(password.service_name + ', locked until: ' + password.locked_until.strftime("%m/%d/%Y, %H:%M"))
