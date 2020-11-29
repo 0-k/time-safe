@@ -1,8 +1,4 @@
-
-from pipeline import Pipeline
-
-# TODO: redo encryption if master password is changed
-
+from src.pipeline import Pipeline
 
 pipe = Pipeline()
 pipe.execute()
